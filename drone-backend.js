@@ -26,7 +26,7 @@ function fly(robot) {
     bot.nav.on("altitudeChange", function(data) {
         console.log("Altitude:", data);
 
-        if (altitude > 1.5) {
+        if (data > 1.5) {
             bot.drone.land();
         }
     });
@@ -46,9 +46,9 @@ function fly(robot) {
       //  bot.drone.left(0);}
       //  );
 
-    bot.drone.land(after(10*1000, function() {
+   after(10*1000, function() {
         bot.drone.land();
-    }));
+    });
 
     after(15*1000, function() {
         bot.drone.stop();
